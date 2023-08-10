@@ -38,6 +38,9 @@ export const Header: FC = () => {
     <section className={css({
       height:"56px",
       backgroundColor: "#93C5FD",
+      lg: {
+        height: "80px",
+      }
     })}>
       <ul className={css({
         display: "flex",
@@ -45,9 +48,14 @@ export const Header: FC = () => {
         alignItems: "center",
         gap: "32px",
         height: "100%",
+        overflowY: "hidden",
       })}>
         {TOPICS.map((topic, index) => (
-          <li key={index}>
+          <li key={index} className={css({
+            "&:last-child": {
+              paddingRight: "20px",
+            }
+          })}>
             <Link href={`${topic.path}`}>
               <span>{topic.title}</span>
             </Link>
